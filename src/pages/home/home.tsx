@@ -52,20 +52,20 @@ export default function Home() {
                 </tr>
    
               <tr> 
-                <td> <Link to="/tasks"><FontAwesomeIcon icon={faFolder} style={{color: "#5f6368",}} /> &nbsp;&nbsp;Folder A </Link></td>
+                <td> <Link to="/tasks"><FontAwesomeIcon icon={faFolder} size="lg" style={{color: "#5f6368",}} /> &nbsp;&nbsp;Folder A </Link></td>
                 <td> <Link to="/tasks">1 GB</Link></td>
                 <td> <Link to="/tasks">a Day ago</Link></td>
                 <td className="text-center">  <Link to="/tasks"><FontAwesomeIcon icon={faEllipsisVertical} /></Link></td>
               </tr>
 
               <tr>
-              <td><FontAwesomeIcon icon={faFolder} style={{color: "#5f6368",}} />&nbsp;&nbsp;Folder B</td>
+              <td><FontAwesomeIcon icon={faFolder} size="lg" style={{color: "#5f6368",}} />&nbsp;&nbsp;Folder B</td>
                 <td>1 MB</td>
                 <td>a Day ago</td>
                 <td className="text-center"><FontAwesomeIcon icon={faEllipsisVertical} /></td>
               </tr>
               <tr>
-              <td><FontAwesomeIcon icon={faFolder} style={{color: "#5f6368",}} />&nbsp;&nbsp;Folder C</td>
+              <td><FontAwesomeIcon icon={faFolder} size="lg" style={{color: "#5f6368",}} />&nbsp;&nbsp;Folder C</td>
                 <td >1 MB</td>
                 <td>a Day ago</td>
                 <td className="text-center"><FontAwesomeIcon icon={faEllipsisVertical} /></td>

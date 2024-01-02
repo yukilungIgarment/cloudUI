@@ -52,37 +52,37 @@ export default function Task() {
                   <td></td>
                 </tr>
               <tr>
-                <td><FontAwesomeIcon icon={faFileWord} style={{color: "#4285f4",}} />&nbsp;&nbsp;Word.doc</td>
+                <td><FontAwesomeIcon icon={faFileWord} size="lg" style={{color: "#4285f4",} } />&nbsp;&nbsp;Word.doc</td>
                 <td>1 GB</td>
                 <td>a Day ago</td>
                 <td className="text-center"><FontAwesomeIcon icon={faEllipsisVertical} /></td>
               </tr>
               <tr>
-              <td><FontAwesomeIcon icon={faFileWord} style={{color: "#4285f4",}} />&nbsp;&nbsp;Word.doc</td>
+              <td><FontAwesomeIcon icon={faFileWord} size="lg" style={{color: "#4285f4",}} />&nbsp;&nbsp;Word.doc</td>
                 <td>1 MB</td>
                 <td>a month ago</td>
                 <td className="text-center"><FontAwesomeIcon icon={faEllipsisVertical} /></td>
               </tr>
               <tr>
-              <td><FontAwesomeIcon icon={faFilePowerpoint} style={{color: "#f4b400",}} />&nbsp;&nbsp;Powerpoint.ppt</td>
+              <td><FontAwesomeIcon icon={faFilePowerpoint} size="lg" style={{color: "#f4b400",}} />&nbsp;&nbsp;Powerpoint.ppt</td>
                 <td >1 MB</td>
                 <td>a month ago</td>
                 <td className="text-center"><FontAwesomeIcon icon={faEllipsisVertical} /></td>
               </tr>
               <tr>
-              <td><FontAwesomeIcon icon={faFileExcel} style={{color: "#249d58",}} />&nbsp;&nbsp;Excel.xlxs</td>
+              <td><FontAwesomeIcon icon={faFileExcel} size="lg" style={{color: "#249d58",}} />&nbsp;&nbsp;Excel.xlxs</td>
                 <td >1 MB</td>
                 <td>a month ago</td>
                 <td className="text-center"><FontAwesomeIcon icon={faEllipsisVertical} /></td>
               </tr>
               <tr>
-              <td><FontAwesomeIcon icon={faFileExcel} style={{color: "#249d58",}} />&nbsp;&nbsp;Excel.xlxs</td>
+              <td><FontAwesomeIcon icon={faFileExcel} size="lg" style={{color: "#249d58",}} />&nbsp;&nbsp;Excel.xlxs</td>
                 <td >1 MB</td>
                 <td>a month ago</td>
                 <td className="text-center"><FontAwesomeIcon icon={faEllipsisVertical} /></td>
               </tr>
               <tr>
-              <td><FontAwesomeIcon icon={faFile} style={{color: "#1a73e8",}} />&nbsp;&nbsp;other.exe</td>
+              <td><FontAwesomeIcon icon={faFile} size="lg" style={{color: "#1a73e8",}} />&nbsp;&nbsp;other.exe</td>
                 <td >10 GB</td>
                 <td>a year ago</td>
                 <td className="text-center"><FontAwesomeIcon icon={faEllipsisVertical} /></td>

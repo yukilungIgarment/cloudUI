@@ -9,6 +9,7 @@ import { Scrolling, LoadPanel } from 'devextreme-react/data-grid';
 import Toolbar, { Item } from 'devextreme-react/toolbar';
 import 'devextreme/ui/text_box';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFolder } from '@fortawesome/free-solid-svg-icons'
 import { faHardDrive } from '@fortawesome/free-solid-svg-icons'
 import ContextMenu, { ContextMenuTypes } from 'devextreme-react/context-menu';
 import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons'
@@ -46,18 +47,36 @@ export default function Home() {
             }} />
         </Toolbar>
         <div id="table">
-          <DataGrid dataSource={folder} height={440} showBorders={true}>
-            <Scrolling mode="infinite" />
-            <LoadPanel enabled={false} />
-            <Column dataField="Name">
-            </Column>
-            <Column dataField="Size" />
-            <Column dataField="Modified" />
-            <Column type="buttons" width={110} >
-              <Button hint="Download" icon="overflow" >
-              </Button>
-            </Column>
-          </DataGrid>
+        <table className="table " id="profiletable">
+            <tbody>
+                <th id="header">
+                  <td >Name</td>
+                  <td >Size</td>
+                  <td>Modified</td>
+                  <td></td>
+                </th>
+   
+              <tr> 
+                <td> <Link to="/tasks"><FontAwesomeIcon icon={faFolder} size="lg" style={{color: "#5f6368",}} /> &nbsp;&nbsp;Folder A </Link></td>
+                <td> <Link to="/tasks">1 GB</Link></td>
+                <td> <Link to="/tasks">a Day ago</Link></td>
+                <td className="text-center">  <Link to="/tasks"><FontAwesomeIcon icon={faEllipsisVertical} /></Link></td>
+              </tr>
+
+              <tr>
+              <td><FontAwesomeIcon icon={faFolder} size="lg" style={{color: "#5f6368",}} />&nbsp;&nbsp;Folder B</td>
+                <td>1 MB</td>
+                <td>a Day ago</td>
+                <td className="text-center"><FontAwesomeIcon icon={faEllipsisVertical} /></td>
+              </tr>
+              <tr>
+              <td><FontAwesomeIcon icon={faFolder} size="lg" style={{color: "#5f6368",}} />&nbsp;&nbsp;Folder C</td>
+                <td >1 MB</td>
+                <td>a Day ago</td>
+                <td className="text-center"><FontAwesomeIcon icon={faEllipsisVertical} /></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
         <ContextMenu dataSource={contextmenu} target="#table" />
       </div>
