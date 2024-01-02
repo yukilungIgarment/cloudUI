@@ -11044,8 +11044,8 @@
 .dx-datagrid-borders > .dx-datagrid-headers,
 .dx-datagrid-borders > .dx-datagrid-rowsview,
 .dx-datagrid-borders > .dx-datagrid-total-footer {
-  border-left: 1px solid #e0e0e0;
-  border-right: 1px solid #e0e0e0;
+  border-left: 0px solid #e0e0e0;
+  border-right: 0px solid #e0e0e0;
 }
 .dx-datagrid-borders > .dx-datagrid-rowsview,
 .dx-datagrid-borders > .dx-datagrid-total-footer {
@@ -11053,7 +11053,7 @@
 }
 .dx-datagrid-borders > .dx-datagrid-filter-panel,
 .dx-datagrid-borders > .dx-datagrid-headers {
-  border-top: 1px solid #e0e0e0;
+  border-top: 0px solid #e0e0e0;
 }
 .dx-datagrid-borders > .dx-datagrid-filter-panel {
   border-top-width: 0;

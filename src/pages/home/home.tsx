@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import DataGrid, {
   Button, Column, 
 } from 'devextreme-react/data-grid';
-import { folder, contextMenuItems as items } from './folder';
+import { folder, contextmenu } from './folder';
 import {  Scrolling, LoadPanel } from 'devextreme-react/data-grid';
 import Toolbar, { Item } from 'devextreme-react/toolbar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faFolder,faEllipsisVertical } from '@fortawesome/free-solid-svg-icons'
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import ContextMenu, { ContextMenuTypes } from 'devextreme-react/context-menu';
+import { Link } from "react-router-dom";
 
 export default function Home() {
   const actions = [
@@ -15,10 +17,7 @@ export default function Home() {
     { text: 'New Folder', icon: 'folder' },
   ];
 
-  const contextmenu = [
-    { text: 'Download', icon: 'download' },
-    { text: 'Copy', icon: 'folder' },
-  ];
+ 
 
   return (
     <React.Fragment>
@@ -43,18 +42,38 @@ export default function Home() {
             }} />
         </Toolbar>
         <div id="table">
-        <DataGrid dataSource={folder} height={440} showBorders={true}>
-          <Scrolling mode="infinite" />
-          <LoadPanel enabled={false} />
-          <Column dataField="Name" />
-          <Column dataField="Size" />
-          <Column dataField="Modified" />
-          <Column type="buttons" width={110} >
-            <Button hint="Download" icon="overflow" />
-          </Column>
-        </DataGrid>
+        <table className="table " id="profiletable">
+            <tbody>
+                <tr id="header">
+                  <td >Name</td>
+                  <td >Size</td>
+                  <td>Modified</td>
+                  <td></td>
+                </tr>
+   
+              <tr> 
+                <td> <Link to="/tasks"><FontAwesomeIcon icon={faFolder} style={{color: "#5f6368",}} /> &nbsp;&nbsp;Folder A </Link></td>
+                <td> <Link to="/tasks">1 GB</Link></td>
+                <td> <Link to="/tasks">a Day ago</Link></td>
+                <td className="text-center">  <Link to="/tasks"><FontAwesomeIcon icon={faEllipsisVertical} /></Link></td>
+              </tr>
+
+              <tr>
+              <td><FontAwesomeIcon icon={faFolder} style={{color: "#5f6368",}} />&nbsp;&nbsp;Folder B</td>
+                <td>1 MB</td>
+                <td>a Day ago</td>
+                <td className="text-center"><FontAwesomeIcon icon={faEllipsisVertical} /></td>
+              </tr>
+              <tr>
+              <td><FontAwesomeIcon icon={faFolder} style={{color: "#5f6368",}} />&nbsp;&nbsp;Folder C</td>
+                <td >1 MB</td>
+                <td>a Day ago</td>
+                <td className="text-center"><FontAwesomeIcon icon={faEllipsisVertical} /></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-        <ContextMenu dataSource={contextmenu} target="#table" width={200} />
+        <ContextMenu dataSource={contextmenu} target="#table"  />
       </div>
     </React.Fragment>
   )

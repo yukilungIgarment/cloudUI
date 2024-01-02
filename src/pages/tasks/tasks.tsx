@@ -1,110 +1,96 @@
-import React from 'react';
-import 'devextreme/data/odata/store';
+import React, { useState } from 'react';
+import 'devextreme/dist/css/dx.light.css';
 import DataGrid, {
-  Column,
-  Pager,
-  Paging,
-  FilterRow,
-  Lookup
+  Button, Column, 
 } from 'devextreme-react/data-grid';
+import { folder, contextmenu } from '../home/folder';
+import {  Scrolling, LoadPanel } from 'devextreme-react/data-grid';
+import Toolbar, { Item } from 'devextreme-react/toolbar';
+import 'devextreme/ui/text_box';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEllipsisVertical, faFileWord, faFilePowerpoint,faFileExcel, faFile } from '@fortawesome/free-solid-svg-icons';
+import { faHome } from '@fortawesome/free-solid-svg-icons'
+import ContextMenu, { ContextMenuTypes } from 'devextreme-react/context-menu';
 
 export default function Task() {
+
+  const actions = [
+    { text: 'Upload File', icon: 'upload' },
+    { text: 'New Folder', icon: 'folder' },
+  ];
+
   return (
     <React.Fragment>
-      <h2 className={'content-block'}>Tasks</h2>
-
-      <DataGrid
-        className={'dx-card wide-card'}
-        dataSource={dataSource as any}
-        showBorders={false}
-        focusedRowEnabled={true}
-        defaultFocusedRowIndex={0}
-        columnAutoWidth={true}
-        columnHidingEnabled={true}
-      >
-        <Paging defaultPageSize={10} />
-        <Pager showPageSizeSelector={true} showInfo={true} />
-        <FilterRow visible={true} />
-
-        <Column dataField={'Task_ID'} width={90} hidingPriority={2} />
-        <Column
-          dataField={'Task_Subject'}
-          width={190}
-          caption={'Subject'}
-          hidingPriority={8}
-        />
-        <Column
-          dataField={'Task_Status'}
-          caption={'Status'}
-          hidingPriority={6}
-        />
-        <Column
-          dataField={'Task_Priority'}
-          caption={'Priority'}
-          hidingPriority={5}
-        >
-          <Lookup
-            dataSource={priorities}
-            valueExpr={'value'}
-            displayExpr={'name'}
-          />
-        </Column>
-        <Column
-          dataField={'ResponsibleEmployee.Employee_Full_Name'}
-          caption={'Assigned To'}
-          allowSorting={false}
-          hidingPriority={7}
-        />
-        <Column
-          dataField={'Task_Start_Date'}
-          caption={'Start Date'}
-          dataType={'date'}
-          hidingPriority={3}
-        />
-        <Column
-          dataField={'Task_Due_Date'}
-          caption={'Due Date'}
-          dataType={'date'}
-          hidingPriority={4}
-        />
-        <Column
-          dataField={'Task_Priority'}
-          caption={'Priority'}
-          name={'Priority'}
-          hidingPriority={1}
-        />
-        <Column
-          dataField={'Task_Completion'}
-          caption={'Completion'}
-          hidingPriority={0}
-        />
-      </DataGrid>
-    </React.Fragment>
+    <div className={'content-block'}>
+      <Toolbar>
+        <Item location='before' >
+          <nav aria-label="breadcrumb">
+            <ol className="breadcrumb">
+              <i className="fas fa-home"></i>
+              <li className="breadcrumb-item"><a href="#"><FontAwesomeIcon icon={faHome}  color="$base-text-color" size="1x"/> Home</a></li>
+              <li className="breadcrumb-item active" aria-current="page">Folder A</li>
+            </ol>
+          </nav>
+        </Item>
+        <Item 
+          widget="dxDropDownButton"
+          location="after"
+          options={{
+            items: actions,
+            icon: 'plus',
+            text: 'New',
+            dropDownOptions: { width: 200 }
+          }} />
+      </Toolbar>
+      <div id="table">
+      <table className="table " id="profiletable">
+            <tbody>
+                <tr id="header">
+                  <td >Name</td>
+                  <td >Size</td>
+                  <td>Modified</td>
+                  <td></td>
+                </tr>
+              <tr>
+                <td><FontAwesomeIcon icon={faFileWord} style={{color: "#4285f4",}} />&nbsp;&nbsp;Word.doc</td>
+                <td>1 GB</td>
+                <td>a Day ago</td>
+                <td className="text-center"><FontAwesomeIcon icon={faEllipsisVertical} /></td>
+              </tr>
+              <tr>
+              <td><FontAwesomeIcon icon={faFileWord} style={{color: "#4285f4",}} />&nbsp;&nbsp;Word.doc</td>
+                <td>1 MB</td>
+                <td>a month ago</td>
+                <td className="text-center"><FontAwesomeIcon icon={faEllipsisVertical} /></td>
+              </tr>
+              <tr>
+              <td><FontAwesomeIcon icon={faFilePowerpoint} style={{color: "#f4b400",}} />&nbsp;&nbsp;Powerpoint.ppt</td>
+                <td >1 MB</td>
+                <td>a month ago</td>
+                <td className="text-center"><FontAwesomeIcon icon={faEllipsisVertical} /></td>
+              </tr>
+              <tr>
+              <td><FontAwesomeIcon icon={faFileExcel} style={{color: "#249d58",}} />&nbsp;&nbsp;Excel.xlxs</td>
+                <td >1 MB</td>
+                <td>a month ago</td>
+                <td className="text-center"><FontAwesomeIcon icon={faEllipsisVertical} /></td>
+              </tr>
+              <tr>
+              <td><FontAwesomeIcon icon={faFileExcel} style={{color: "#249d58",}} />&nbsp;&nbsp;Excel.xlxs</td>
+                <td >1 MB</td>
+                <td>a month ago</td>
+                <td className="text-center"><FontAwesomeIcon icon={faEllipsisVertical} /></td>
+              </tr>
+              <tr>
+              <td><FontAwesomeIcon icon={faFile} style={{color: "#1a73e8",}} />&nbsp;&nbsp;other.exe</td>
+                <td >10 GB</td>
+                <td>a year ago</td>
+                <td className="text-center"><FontAwesomeIcon icon={faEllipsisVertical} /></td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+      <ContextMenu dataSource={contextmenu} target="#table"  />
+    </div>
+  </React.Fragment>
 )}
-
-const dataSource = {
-  store: {
-    version: 2,
-    type: 'odata',
-    key: 'Task_ID',
-    url: 'https://js.devexpress.com/Demos/DevAV/odata/Tasks'
-  },
-  expand: 'ResponsibleEmployee',
-  select: [
-    'Task_ID',
-    'Task_Subject',
-    'Task_Start_Date',
-    'Task_Due_Date',
-    'Task_Status',
-    'Task_Priority',
-    'Task_Completion',
-    'ResponsibleEmployee/Employee_Full_Name'
-  ]
-};
-
-const priorities = [
-  { name: 'High', value: 4 },
-  { name: 'Urgent', value: 3 },
-  { name: 'Normal', value: 2 },
-  { name: 'Low', value: 1 }
-];
