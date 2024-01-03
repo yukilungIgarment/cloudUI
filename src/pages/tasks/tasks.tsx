@@ -11,6 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEllipsisVertical, faFileWord, faFilePowerpoint,faFileExcel, faFile } from '@fortawesome/free-solid-svg-icons';
 import { faHome } from '@fortawesome/free-solid-svg-icons'
 import ContextMenu, { ContextMenuTypes } from 'devextreme-react/context-menu';
+import { DropDownButton } from "devextreme-react";
 
 export default function Task() {
 
@@ -22,8 +23,8 @@ export default function Task() {
   return (
     <React.Fragment>
     <div className={'content-block'}>
-      <Toolbar>
-        <Item location='before' >
+      <div className={'justify-between'}>
+          <div>
           <nav aria-label="breadcrumb">
             <ol className="breadcrumb">
               <i className="fas fa-home"></i>
@@ -31,17 +32,12 @@ export default function Task() {
               <li className="breadcrumb-item active" aria-current="page">Folder A</li>
             </ol>
           </nav>
-        </Item>
-        <Item 
-          widget="dxDropDownButton"
-          location="after"
-          options={{
-            items: actions,
-            icon: 'plus',
-            text: 'New',
-            dropDownOptions: { width: 200 }
-          }} />
-      </Toolbar>
+          </div>
+          <div>
+            <DropDownButton 
+                icon="plus" items={actions} width={200} id="tablebutton"/>
+          </div>
+        </div>
       <div id="table">
       <table className="table " id="profiletable">
             <tbody>

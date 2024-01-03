@@ -204,3 +204,10 @@ a {
   color: #4285f4;
 }
 
+#tablebutton .dx-button-content{
+  justify-content: flex-end !important;
+}
+
+#tablebutton .dx-button-mode-contained.dx-buttongroup-first-item.dx-button, .dx-button-mode-outlined.dx-buttongroup-first-item.dx-button{
+  border: none;
+}
