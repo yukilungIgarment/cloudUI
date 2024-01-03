@@ -78,7 +78,7 @@ export default function Task() {
                 <td className="text-center"><FontAwesomeIcon icon={faEllipsisVertical} /></td>
               </tr>
               <tr>
-              <td><FontAwesomeIcon icon={faFile} size="lg" style={{color: "#1a73e8",}} />&nbsp;&nbsp;other.exe</td>
+              <td><FontAwesomeIcon icon={faFile} size="lg" style={{color: "#adadad",}} />&nbsp;&nbsp;other.exe</td>
                 <td >10 GB</td>
                 <td>a year ago</td>
                 <td className="text-center"><FontAwesomeIcon icon={faEllipsisVertical} /></td>
